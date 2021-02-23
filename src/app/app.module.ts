@@ -6,13 +6,15 @@ import { AppComponent } from "./app.component";
 
 import { LoginComponent } from "./authorize/login/login.component";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-// import { AngularMaterialModule } from "./material-module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from "./material-module";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule,FlexLayoutModule, AppRoutingModule, BrowserAnimationsModule, AngularMaterialModule],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule {}
+export class AppModule { }

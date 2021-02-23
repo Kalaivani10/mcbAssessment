@@ -1,2 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.centerAlign {
+    margin-top:10% !important;
+    margin-bottom: 10% !important;
+    // margin-right :5% !important;
+    // margin-left:5% !important;
+}
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #fff;
+    // background-color: #9666df;
+    border-bottom: 1px solid #eeeeee; }
+    .card-header:first-child {
+      border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0; }
+    .card-header + .list-group .list-group-item:first-child {
+      border-top: 0; }

@@ -1,3 +1,76 @@
-<p>
-  login works!
-</p>
+  <!-- <div class="row">
+    <div class="col-lg-7 col-md-7 col-sm-0 col-xs-0"></div>
+    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10 centerAlign">
+      <mat-card>
+        <form class="centerAlign">
+          <mat-card-title>Welcome</mat-card-title>
+          <mat-card-subtitle>Login to continue</mat-card-subtitle>
+          <mat-card-content>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>User Id</mat-label>
+                <input matInput placeholder="Placeholder">
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </mat-form-field>
+            </p>
+          </mat-card-content>
+          <mat-card-actions end>
+            <button mat-raised-button color="primary">Submit</button>
+          </mat-card-actions>
+          <mat-card-footer>Footer</mat-card-footer>
+        </form>
+      </mat-card>
+    </div>
+  </div> -->
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div fxLayout="column" fxLayoutAlign="center center" style="height: 80vh">
+      <mat-card>
+        <form [formGroup]="loginForm">
+          <mat-card-title>
+            Welcome
+          </mat-card-title>
+          <mat-card-subtitle>
+            Login to continue
+          </mat-card-subtitle>
+          <mat-card-content>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input color="primary" matInput formControlName="username" placeholder="Username">
+                <mat-icon color="primary" matPrefix>account_circle</mat-icon>
+                <!-- <mat-icon matSuffix color="primary" *ngIf="!loginForm.controls['username'].errors">
+                  visibility</mat-icon> -->
+                <!-- <mat-icon matSuffix color="warn" *ngIf="loginForm.controls['username'].errors">
+                  visibility_off</mat-icon> -->
+                <!-- <mat-hint>Alphanumeric only</mat-hint> -->
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput formControlName="password" placeholder="Password">
+                <mat-icon color="primary" matPrefix>lock</mat-icon>
+                <mat-icon matSuffix color="primary" *ngIf="!loginForm.controls['password'].errors">
+                  visibility</mat-icon>
+                <mat-icon matSuffix color="warn" *ngIf="loginForm.controls['password'].errors">
+                  visibility_off</mat-icon>
+                <!-- <mat-hint>Who am I?</mat-hint> -->
+              </mat-form-field>
+            </p>
+          </mat-card-content>
+          <mat-card-actions fxLayout="row" fxLayoutAlign="right right">
+            <button mat-raised-button color="primary">
+              Submit
+            </button>
+          </mat-card-actions>
+        </form>
+      </mat-card>
+    </div>
+  </div>
