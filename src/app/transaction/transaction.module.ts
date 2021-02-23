@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TransactionRoutingModule } from './transaction-routing.module';
-import { TransactionComponent } from './transaction/transaction.component';
+import { NewTransactionComponent } from './new-transaction/new-transaction.component';
 
 @NgModule({
-  declarations: [TransactionComponent],
+  declarations: [NewTransactionComponent],
   imports: [
     CommonModule,
     TransactionRoutingModule
