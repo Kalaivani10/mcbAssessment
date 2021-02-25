@@ -2,23 +2,136 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~bootstrap/dist/css/bootstrap.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
-.centerAlign {
-    margin-top:10% !important;
-    margin-bottom: 10% !important;
-    // margin-right :5% !important;
-    // margin-left:5% !important;
+html,
+body {
+  height: 100%;
 }
-.card-header {
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 0;
-    background-color: #fff;
-    // background-color: #9666df;
-    border-bottom: 1px solid #eeeeee; }
-    .card-header:first-child {
-      border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0; }
-    .card-header + .list-group .list-group-item:first-child {
-      border-top: 0; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/*********Login Starts********/
+.regpt3 {
+  padding-top: 15px;
+}
+
+.frmpadtp {
+  margin-top: 40%;
+  margin-bottom: 45%;
+}
+
+.loginbtn {
+  background: #673ab7 !important;
+  border-radius: 4px !important;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 280px;
+  height: 40px;
+  font-size: 16px !important;
+  color: #fff !important;
+}
+p {
+  color: #a5a5a5;
+}
+
+.margLeft3 {
+  margin-left: 3% !important;
+  margin-right: 3% !important;
+}
+
+.logininput::placeholder {
+  color: #a5a5a5 !important;
+  font-weight: 400 !important;
+  font-size: 12px;
+}
+.floattxt {
+  top: 108px;
+  position: absolute;
+  left: 10%;
+  background: #fff;
+  padding: 0 5px;
+  font-size: 14px;
+  z-index: 11;
+}
+
+#grad1 {
+  // height: 200px;
+  background-color: #a5a5a51a; /* For browsers that do not support gradients */
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(92, 36, 156),
+    rgb(227, 223, 238)
+  );
+}
+
+.floattxtPass {
+  top: 191px;
+  position: absolute;
+  left: 10%;
+  background: #fff;
+  padding: 0 5px;
+  font-size: 14px;
+  z-index: 11;
+}
+.logininput {
+  padding: 0px 5px 0 15px;
+  font-weight: 400 !important;
+  position: relative;
+  z-index: 1;
+  border: 1px solid #a5a5a5;
+  width: 280px;
+  height: 40px;
+  border-radius: 4px;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+a {
+  color: #673ab7;
+}
+
+.margTop10 {
+  margin-top: 15%;
+}
+
+/***********Login ends************/
+
+/*********** Media query start ***************/
+
+@media (max-width: 800px) {
+  .logininput {
+    width: 96%;
+    height: 48px;
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: 14px !important;
+    padding: 5px 15px 0 15px;
+  }
+  .login-width {
+    width: 92%;
+    margin: 0 auto;
+  }
+  .loginbtn {
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 44px;
+  }
+  .floattxt {
+    font-size: 14px;
+    left: 30px;
+    top: 108px;
+  }
+
+  .floattxtPass {
+    top: 191px;
+    position: absolute;
+    left: 10%;
+  }
+}
+/*********** Media query end ***************/
+
+/***Header start****/
+.example-spacer {
+  flex: 1 1 auto;
+}

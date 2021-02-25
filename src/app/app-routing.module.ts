@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 // import { AuthorizeModule } from './authorize/authorize.module';
 // import { DashboardModule } from './dashboard/dashboard.module';
 // import { TransactionHistoryModule } from './transaction-history/transaction-history.module';
@@ -7,28 +7,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'authorize',
-    pathMatch: 'full'
+    path: "",
+    redirectTo: "authorize",
+    pathMatch: "full",
   },
-
-  // {
-  //   path: "authorize",
-  //   loadChildren: () => AuthorizeModule
-  // },
-  // {
-  //   path: "dashboard",
-  //   loadChildren: () => DashboardModule
-  // },
-  // {
-  //   path: "transaction",
-  //   loadChildren: () => TransactionModule
-  // },
-  // {
-  //   path: "transaction-history",
-  //   loadChildren: () => TransactionHistoryModule
-  // },
-
   {
     path: "authorize",
     loadChildren: "./authorize/authorize.module#AuthorizeModule",
@@ -39,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: "transaction-history",
-    loadChildren: "./transaction-history/transaction-history.module#TransactionHistoryModule",
+    loadChildren:
+      "./transaction-history/transaction-history.module#TransactionHistoryModule",
   },
   {
     path: "transaction",
@@ -49,6 +32,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
