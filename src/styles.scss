@@ -132,6 +132,7 @@ a {
 /*********** Media query end ***************/
 
 /***Header start****/
-.example-spacer {
-  flex: 1 1 auto;
+.mat-toolbar.mat-primary {
+  background: #673ab7 !important;
+  color: #fff ;
 }

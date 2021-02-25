@@ -1,3 +1,105 @@
-<p>
-  new-transaction works!
-</p>
+ <!-- <h3>Linear Vertical Stepper Demo using a single form</h3> -->
+  <mat-vertical-stepper
+    #linearVerticalStepper="matVerticalStepper"
+    formArrayName="formArray"
+    [linear]="false"
+  >
+  <form [formGroup]="formGroup">
+    <mat-step formGroupName="0" [stepControl]="formArray?.get([0])">
+    
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <mat-form-field>
+        <mat-label>First name</mat-label>
+        <input matInput formControlName="firstNameFormCtrl" required />
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Last name</mat-label>
+        <input matInput formControlName="lastNameFormCtrl" required />
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step formGroupName="1" [stepControl]="formArray?.get([1])">
+      <ng-template matStepLabel>
+        <div>Fill out your email address</div>
+      </ng-template>
+      <mat-form-field>
+        <mat-label>Email address</mat-label>
+        <input matInput formControlName="emailFormCtrl" />
+        <mat-error>The input is invalid.</mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Confirm your information</ng-template>
+      Everything seems correct.
+      <div>
+        <button mat-button>Done</button>
+        <button
+          type="button"
+          mat-button
+          (click)="linearVerticalStepper.reset()"
+        >
+          Reset
+        </button>
+      </div>
+
+    </mat-step>
+  </form> 
+  </mat-vertical-stepper>
+
+<!-- 
+<mat-vertical-stepper [linear]="true" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Last name, First name"
+          formControlName="firstCtrl"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input
+          matInput
+          formControlName="secondCtrl"
+          placeholder="Ex. 1 Main St, New York, NY"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper> -->
