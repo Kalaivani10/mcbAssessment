@@ -11,74 +11,44 @@ import {
   templateUrl: "./new-transaction.component.html",
   styleUrls: ["./new-transaction.component.scss"],
 })
-export class NewTransactionComponent implements OnInit {
-    fruits: Array<string> = [
-      "apple",
-      "pear",
-      "kiwi",
-      "banana",
-      "grape",
-      "strawberry",
-      "grapefruit",
-      "melon",
-      "mango",
-      "plum",
-    ];
-
-    formGroup: FormGroup;
-
-    nameFormGroup: FormGroup;
-    emailFormGroup: FormGroup;
-
-    steps = [
-      { label: "Confirm your name", content: "Last name, First name." },
-      { label: "Confirm your contact information", content: "123-456-7890" },
-      { label: "Confirm your address", content: "1600 Amphitheater Pkwy MTV" },
-      { label: "You are now done", content: "Finished!" },
-    ];
-
-    /** Returns a FormArray with the name 'formArray'. */
-    get formArray(): AbstractControl | null {
-      return this.formGroup.get("formArray");
-    }
-
-    constructor(private _formBuilder: FormBuilder) {}
-
-    ngOnInit() {
-      this.formGroup = this._formBuilder.group({
-        formArray: this._formBuilder.array([
-          this._formBuilder.group({
-            firstNameFormCtrl: ["", Validators.required],
-            lastNameFormCtrl: ["", Validators.required],
-          }),
-          this._formBuilder.group({
-            emailFormCtrl: ["", Validators.email],
-          }),
-        ]),
-      });
-
-      this.nameFormGroup = this._formBuilder.group({
-        firstNameCtrl: ["", Validators.required],
-        lastNameCtrl: ["", Validators.required],
-      });
-
-      this.emailFormGroup = this._formBuilder.group({
-        emailCtrl: ["", Validators.email],
-      });
-    }
+export class NewTransactionComponent {
+  isLinear = false;
+  referenceForm: FormGroup;
+  customerDetailForm: FormGroup;
+  transactionForm: FormGroup;
+  paymentForm: FormGroup;
+  constructor(private formbuilder: FormBuilder) {
+    this.createForm();
   }
-//   isLinear = false;
-//   firstFormGroup: FormGroup;
-//   secondFormGroup: FormGroup;
+  ngOnit() {}
+  createForm() {
+    this.referenceForm = this.formbuilder.group({
+      referenceNo: ["", Validators.required],
+    });
 
-//   constructor(private _formBuilder: FormBuilder) {}
+    this.customerDetailForm = this.formbuilder.group({
+      custNo: ["", Validators.required],
+      custName: ["", Validators.required],
+      custAddress: ["", Validators.required],
+      mobile: ["", Validators.required],
+    });
+    this.paymentForm = this.formbuilder.group({
+      payment: [
+        "",
+        Validators.compose([Validators.required, Validators.email]),
+      ],
+    });
+    this.transactionForm = this.formbuilder.group({
+      amount: [
+        "",
+        Validators.compose([Validators.required, Validators.min(10)]),
+      ],
+      currency: ["", Validators.required],
+      bank: ["", Validators.required],
+      bAccountNo: ["", Validators.required],
+    });
+  }
 
-//   ngOnInit() {
-//     this.firstFormGroup = this._formBuilder.group({
-//       firstCtrl: ["", Validators.required],
-//     });
-//     this.secondFormGroup = this._formBuilder.group({
-//       secondCtrl: ["", Validators.required],
-//     });
-//   }
-// }
+  /**Method for the user Registration */
+  register() {}
+}

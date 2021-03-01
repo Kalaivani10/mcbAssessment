@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-// import { AuthorizeModule } from './authorize/authorize.module';
-// import { DashboardModule } from './dashboard/dashboard.module';
-// import { TransactionHistoryModule } from './transaction-history/transaction-history.module';
-// import { TransactionModule } from './transaction/transaction.module';
+// import { AuthorizeModule } from "./authorize/authorize.module";
+// import { DashboardModule } from "./dashboard/dashboard.module";
+// import { TransactionHistoryModule } from "./transaction-history/transaction-history.module";
+// import { TransactionModule } from "./transaction/transaction.module";
 
 const routes: Routes = [
   {
@@ -15,6 +15,7 @@ const routes: Routes = [
     path: "authorize",
     loadChildren: "./authorize/authorize.module#AuthorizeModule",
   },
+
   {
     path: "dashboard",
     loadChildren: "./dashboard/dashboard.module#DashboardModule",
@@ -31,7 +32,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

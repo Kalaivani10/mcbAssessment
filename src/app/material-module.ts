@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
 
 import {
   MatButtonModule,
@@ -16,6 +17,7 @@ import {
   MatGridListModule,
   MatRadioModule,
   MatDialogModule,
+  MatStepperModule,
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
@@ -47,6 +49,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
     MatSidenavModule,
     MatFormFieldModule,
     MatInputModule,
+    MatStepperModule,
     MatTooltipModule,
     MatToolbarModule,
     MatSelectModule,
@@ -80,7 +83,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
     MatTooltipModule,
     MatToolbarModule,
     MatRippleModule,
-
+    MatStepperModule,
     MatSelectModule,
     MatDividerModule,
     MatGridListModule,
@@ -99,8 +102,14 @@ import { MatTooltipModule } from "@angular/material/tooltip";
     MatButtonToggleModule,
     MatAutocompleteModule,
   ],
+  // providers: [
   providers: [
-    // {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { displayDefaultIndicatorType: false },
+    },
   ],
+  // {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}
+  // ],
 })
 export class AngularMaterialModule {}

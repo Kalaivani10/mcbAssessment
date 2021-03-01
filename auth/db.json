@@ -1,0 +1,34 @@
+{
+  "register": [
+    {
+      "id": 1,
+      "name": "kalai",
+      "email": "test@123",
+      "mobile": "1234567890",
+      "Address": "chennai",
+      "city": "chennai",
+      "country": "Ind",
+      "password": "abc123"
+    },
+    {
+      "name": "vani",
+      "email": "test@123",
+      "mobile": "1234567890",
+      "Address": "chennai",
+      "city": "chennai",
+      "country": "india",
+      "password": "test@123",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

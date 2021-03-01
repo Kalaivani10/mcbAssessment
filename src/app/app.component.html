@@ -1,4 +1,4 @@
-<header>
-  <mat-toolbar>Online Banking</mat-toolbar>
-</header>
 <router-outlet></router-outlet>
+<app-header *ngIf="loginState"></app-header>
+<app-side-nav *ngIf="loginState"></app-side-nav>
+<app-footer *ngIf="loginState"></app-footer>

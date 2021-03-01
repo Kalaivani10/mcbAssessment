@@ -12,22 +12,29 @@ body {
 }
 
 /*********Login Starts********/
-.regpt3 {
-  padding-top: 15px;
-}
 
 .frmpadtp {
-  margin-top: 40%;
-  margin-bottom: 45%;
+  margin-top: 15vh;
+}
+
+.totalHeight {
+  height: 100vh !important;
+  width: 100vw !important;
+}
+
+.mat-card-actions {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding: 0px !important;
 }
 
 .loginbtn {
   background: #673ab7 !important;
   border-radius: 4px !important;
-  margin-left: 5%;
-  margin-right: 5%;
-  width: 280px;
-  height: 40px;
+  // margin-left: 5%;
+  // margin-right: 5%;
+  width: 100%;
+  // height: 40px;
   font-size: 16px !important;
   color: #fff !important;
 }
@@ -46,7 +53,8 @@ p {
   font-size: 12px;
 }
 .floattxt {
-  top: 108px;
+  top: 25%;
+  // top: 111px !important;
   position: absolute;
   left: 10%;
   background: #fff;
@@ -66,7 +74,8 @@ p {
 }
 
 .floattxtPass {
-  top: 191px;
+  top: 45%;
+  // top: 198px !important;
   position: absolute;
   left: 10%;
   background: #fff;
@@ -80,11 +89,9 @@ p {
   position: relative;
   z-index: 1;
   border: 1px solid #a5a5a5;
-  width: 280px;
+  width: 100%;
   height: 40px;
   border-radius: 4px;
-  margin-left: 3%;
-  margin-right: 3%;
 }
 a {
   color: #673ab7;
@@ -100,10 +107,8 @@ a {
 
 @media (max-width: 800px) {
   .logininput {
-    width: 96%;
+    width: 100%;
     height: 48px;
-    margin-left: 2%;
-    margin-right: 2%;
     font-size: 14px !important;
     padding: 5px 15px 0 15px;
   }
@@ -112,19 +117,20 @@ a {
     margin: 0 auto;
   }
   .loginbtn {
-    width: 96%;
-    margin-left: 2%;
-    margin-right: 2%;
+    width: 98%;
+    // margin-left: 2%;
+    // margin-right: 2%;
     height: 44px;
   }
   .floattxt {
     font-size: 14px;
     left: 30px;
-    top: 108px;
+    // top: 206px;
   }
 
   .floattxtPass {
-    top: 191px;
+    top: 45%;
+    // top: 198px !important;
     position: absolute;
     left: 10%;
   }
@@ -132,7 +138,104 @@ a {
 /*********** Media query end ***************/
 
 /***Header start****/
-.mat-toolbar.mat-primary {
-  background: #673ab7 !important;
-  color: #fff ;
+
+mat-toolbar {
+  overflow: hidden;
+  width: 100%;
+  min-width: 475px;
+  padding: 10px 20px 10px 10px;
+  font-size: 20px;
+  position: relative;
+  color: #fff !important;
+  z-index: 1;
+  background: #673ab79c !important;
+}
+
+mat-toolbar:after {
+  color: #fff !important;
+  box-shadow: 5px 10px #888888;
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 15%;
+  min-width: 200px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  background: #673ab7;
+  transform-origin: bottom left;
+  -ms-transform: skew(-30deg, 0deg);
+  -webkit-transform: skew(-30deg, 0deg);
+  transform: skew(-30deg, 0deg);
+}
+
+.loginSection {
+  z-index: 3;
+  position: relative;
+  widows: 100%;
+}
+.loginSection::after {
+  z-index: 3;
+  position: relative;
+  widows: 100%;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+.headerDarkBg {
+  background-color: #673ab7 !important;
+}
+
+/*******Header ends****/
+
+/*******Dashboard page starts*************/
+.lmskew {
+  background: #673ab7;
+  // padding: 1px;
+  position: relative;
+  z-index: 1;
+  border-radius: 15px;
+  height: 75vh !important;
+  // transform: skewY(4deg);
+}
+
+.lmskew:before,
+.lmskew-orange:before {
+  background: #673ab7;
+  content: "";
+  display: block;
+  height: 90%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  top: 0;
+  transform: skewY(6deg);
+  transform-origin: 100% 0;
+  border-radius: 15px 15px 0 0;
+}
+.margTop3 {
+  margin-top: 3%;
+}
+
+.menuactive {
+  background-image: linear-gradient(to right, #805cc0, #6b47ab);
+}
+
+.clear {
+  clear: both;
+}
+
+li {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: white !important;
+  padding-top: 20%;
+}
+
+/***Register page****/
+.floatRight {
+  float: "right" !important;
 }
