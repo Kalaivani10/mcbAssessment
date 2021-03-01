@@ -1,0 +1,53 @@
+<mat-card>
+  <mat-card-title align="center"><a>
+      <h3>Submitted Transaction</h3>
+    </a></mat-card-title>
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+    </mat-form-field>
+  </div>
+
+  <div class="example-container mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort>
+      <!--  Customer Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Customer Name
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.custname }} </mat-cell>
+      </ng-container>
+
+      <!--  Transfer Amount Column -->
+      <ng-container matColumnDef="amount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Transfer Amount
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.amount }} </mat-cell>
+      </ng-container>
+
+      <!-- Transer Currency Column -->
+      <ng-container matColumnDef="currency">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Transer Currency
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{ row.currency['value'] }} </mat-cell>
+      </ng-container>
+
+      <!--  Reference Column -->
+      <ng-container matColumnDef="reference">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Reference
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row" >
+          {{ row.reference }}
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</mat-card>

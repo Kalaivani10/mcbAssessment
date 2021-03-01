@@ -7,23 +7,34 @@ import { AppComponent } from "./app.component";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AngularMaterialModule } from "./material-module";
-import { FlexLayoutModule } from "@angular/flex-layout";
-import { HeaderComponent } from "./components/header/header.component";
-import { FooterComponent } from "./components/footer/footer.component";
-import { SideNavComponent } from "./components/side-nav/side-nav.component";
+// import { FlexLayoutModule } from "@angular/flex-layout";
 import { HttpClientModule } from "@angular/common/http";
+import { ToastrModule } from 'ngx-toastr';
+import { NumberOnlyDirective } from './Directives/number-only.directive';
+import { PhoneNumberDirective } from "./Directives/phone-number.directive";
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    SideNavComponent,
+    NumberOnlyDirective,
+    PhoneNumberDirective,
+
   ],
   imports: [
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      closeButton: true,
+      progressBar: true,
+      maxOpened: 1,
+      autoDismiss: true,
+      enableHtml: true
+    }),
     HttpClientModule,
     BrowserModule,
-    FlexLayoutModule,
+    // FlexLayoutModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
@@ -32,4 +43,4 @@ import { HttpClientModule } from "@angular/common/http";
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,0 +1,123 @@
+<div id="grad1" class="totalHeight">
+  <div class="row">
+    <div class="col-lg-2 col-md-1"></div>
+    <div class="col-lg-8 col-md-10">
+      <div class="frmpadtp">
+        <mat-card>
+          <mat-card-title align="center">Registration</mat-card-title>
+          <mat-horizontal-stepper [linear]="isLinear" #stepper labelPosition="bottom">
+            <mat-step [stepControl]="userForm" label="Name">
+              <div style="padding-top: 8%">
+                <form [formGroup]="userForm">
+                  <ng-template matStepLabel>User Details</ng-template>
+                  <div class="col-lg-4 col-md-4 example-form">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Name</mat-label>
+                      <input matInput placeholder="Name" required formControlName="userName" />
+                      <mat-error *ngIf="
+                          userForm.controls['userName'].hasError('required')
+                        ">
+                        Name is required!
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-lg-4 col-md-4 example-form">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Email</mat-label>
+                      <input type="text" matInput placeholder="Email" required formControlName="emailID" />
+                      <mat-error *ngIf="
+                          userForm.controls['emailID'].hasError('required')
+                        ">
+                        Email is required!
+                      </mat-error>
+                      <mat-error *ngIf="userForm.controls['emailID'].hasError('email')">
+                        Email is not Valid!
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-lg-4 col-md-4 example-form">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Mobile Number</mat-label>
+                      <input type="tel" (keydown)="onKeyPressQty($event)" id="phno" matInput placeholder="Mobile"
+                        required formControlName="mobile" />
+                      <mat-error *ngIf="userForm.controls['mobile'].hasError('required')">
+                        Mobile is required!
+                      </mat-error>
+                      <mat-error *ngIf="userForm.controls['mobile'].hasError('min')">
+                        Mobile No is Wrong!
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <br />
+                  <button class="floatRight" mat-raised-button matStepperNext>
+                    Next
+                  </button>
+                </form>
+              </div>
+            </mat-step>
+
+            <mat-step [stepControl]="passwordForm">
+              <ng-template matStepLabel>Password Policy</ng-template>
+              <form [formGroup]="passwordForm">
+                <div class="col-lg-4 col-md-4 example-form">
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>New Password</mat-label>
+                    <input type="password" matInput placeholder="newPassword" required formControlName="newPassword" />
+                    <mat-error *ngIf="
+                        passwordForm.controls['newPassword'].hasError(
+                          'required'
+                        )
+                      ">
+                      New Password is required!
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+
+                <div class="example-form">
+                  <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>Confirm Password</mat-label>
+                    <input type="confpassword" matInput placeholder="Re Enter your Password" required
+                      formControlName="confPassWord" />
+                    <!-- <mat-error
+                      *ngIf="
+                        passwordForm.controls['confpassword'].hasError(
+                          'required'
+                        )
+                      "
+                    >
+                      Confirm Password is required!
+                    </mat-error> -->
+                  </mat-form-field>
+                </div>
+              </form>
+
+              <div class="col-lg-4 col-md-4 floatRight">
+                <h5>Click submit to register.</h5>
+                <button mat-raised-button matStepperPrevious color="accent">
+                  Back
+                </button>
+                &nbsp; &nbsp;
+                <button mat-raised-button type="submit" (click)="register()">
+                  Submit
+                </button>
+                &nbsp; &nbsp;
+                <button mat-raised-button (click)="stepper.reset()">
+                  Reset
+                </button>
+              </div>
+            </mat-step>
+          </mat-horizontal-stepper>
+          <mat-card-footer align="center">
+            <p>
+              Already Registered?
+              <a routerLink="/authorize/login">Back to Login</a>
+            </p>
+          </mat-card-footer>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-1"></div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<mat-toolbar class="mat-elevation-z5">
+  <a>{{ greetings }}! {{ userName }}</a>
+  <span class="spacer"></span>
+  <div class="loginSection">
+    <button mat-button (click)="userLogout()">
+      Logout
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<div class="row margTop3">
+  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+    <ul class="lmskew">
+      <div class="clear"></div>
+      <li [ngClass]="{ menuactive: menuPosition == 1 }" (click)="onclickMenu(1)"
+        routerLink="/home/dashboard/new-transaction">
+        <mat-icon>add_chart</mat-icon>
+        <span class="lm-icn"> </span>
+        New Transaction
+      </li>
+      <div class="clear"></div>
+      <li [ngClass]="{ menuactive: menuPosition == 2 }" (click)="onclickMenu(2)"
+        routerLink="/home/dashboard/transaction-history">
+        <span class="lm-icn">
+          <mat-icon>query_stats</mat-icon>
+        </span>
+        View Transactions
+      </li>
+      <div class="clear"></div>
+    </ul>
+  </div>
+  <div class="col-lg-10 col-md-10 col-sm-12">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<div fxLayoutAlign="end">
+  <p>@ All rights reserved</p>
+</div>

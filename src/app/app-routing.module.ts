@@ -1,9 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-// import { AuthorizeModule } from "./authorize/authorize.module";
-// import { DashboardModule } from "./dashboard/dashboard.module";
-// import { TransactionHistoryModule } from "./transaction-history/transaction-history.module";
-// import { TransactionModule } from "./transaction/transaction.module";
+
 
 const routes: Routes = [
   {
@@ -13,26 +10,18 @@ const routes: Routes = [
   },
   {
     path: "authorize",
-    loadChildren: "./authorize/authorize.module#AuthorizeModule",
+    loadChildren: "./auth/auth.module#AuthModule",
   },
 
   {
-    path: "dashboard",
-    loadChildren: "./dashboard/dashboard.module#DashboardModule",
+    path: "home",
+    loadChildren: "./home/home.module#HomeModule",
   },
-  {
-    path: "transaction-history",
-    loadChildren:
-      "./transaction-history/transaction-history.module#TransactionHistoryModule",
-  },
-  {
-    path: "transaction",
-    loadChildren: "./transaction/transaction.module#TransactionModule",
-  },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
