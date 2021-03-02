@@ -10,7 +10,7 @@ import { HttpService } from "src/app/http.service";
   styleUrls: ["./register.component.scss"],
 })
 export class RegisterComponent {
-  isLinear = false;
+  isLinear = true;
   userForm: FormGroup;
   passwordForm: FormGroup;
 

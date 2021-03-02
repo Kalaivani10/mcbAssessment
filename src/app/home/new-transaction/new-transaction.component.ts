@@ -14,7 +14,7 @@ export interface Currency {
   styleUrls: ['./new-transaction.component.scss']
 })
 export class NewTransactionComponent {
-  isLinear = false;
+  isLinear = true;
   referenceForm: FormGroup;
   customerDetailForm: FormGroup;
   transactionForm: FormGroup;
@@ -82,6 +82,9 @@ export class NewTransactionComponent {
       }
       this.service.createTransaction(jsonObj).subscribe((resp) => {
         this.service.toastr.success("Transaction submitted successfully");
+        this.transactionForm.reset();
+        this.paymentForm.reset();
+        this.referenceForm.reset();
       })
     } else {
       this.service.toastr.error("Please fill all the details");
