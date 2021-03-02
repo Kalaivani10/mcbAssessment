@@ -1,5 +1,5 @@
 <mat-toolbar class="mat-elevation-z5">
-  <a>{{ greetings }}! {{ userName }}</a>
+  <a>Welcome {{ userName }}</a>
   <span class="spacer"></span>
   <div class="loginSection">
     <button mat-button (click)="userLogout()">
@@ -10,7 +10,7 @@
 </mat-toolbar>
 
 <div class="row margTop3">
-  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3" style="padding:0px;">
     <ul class="lmskew">
       <div class="clear"></div>
       <li [ngClass]="{ menuactive: menuPosition == 1 }" (click)="onclickMenu(1)"

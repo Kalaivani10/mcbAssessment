@@ -12,15 +12,16 @@ import { HttpService } from "src/app/http.service";
 export class TransactionHistoryComponent implements OnInit {
   displayedColumns = ["name", "amount", "currency", "reference"];
   dataSource: MatTableDataSource<Transactions>;
+  localStorage: any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private service: HttpService) {
     var transactions: Transactions[] = [];
-    var ls = new SecureLS();
-    transactions = ls.get("transactions").data;
 
+    this.localStorage = new SecureLS();
+    transactions = this.localStorage.get("transactions").data;
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(transactions);
 

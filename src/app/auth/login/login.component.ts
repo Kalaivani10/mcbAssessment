@@ -12,8 +12,8 @@ import { HttpService } from "src/app/http.service";
 })
 export class LoginComponent {
   loginError = "";
-  userDetals: any = [];
-
+  userDetails: any = [];
+  localStorage: any;
   loginForm: FormGroup;
 
   constructor(
@@ -38,11 +38,11 @@ export class LoginComponent {
   }
 
   ngOnInit() {
-    var ls = new SecureLS();
-    var userDetails = ls.get("userDetails").data;
+    this.localStorage = new SecureLS();
+    var userDetails = this.localStorage.get("userDetails").data;
     if (userDetails) {
       if (userDetails.length > 0) {
-        this.userDetals = userDetails;
+        this.userDetails = userDetails;
       } else {
         this.getAuthDetails();
       }
@@ -55,9 +55,8 @@ export class LoginComponent {
   /**Method to get the user based on the entered user id */
   getAuthDetails() {
     this.service.getUserById('').subscribe((resp) => {
-      this.userDetals = resp;
-      var ls = new SecureLS();
-      ls.set("userDetails", { data: this.userDetals });
+      this.userDetails = resp;
+      this.localStorage.set("userDetails", { data: this.userDetails });
     })
 
   }
@@ -65,12 +64,11 @@ export class LoginComponent {
 
   /**Method to the user login */
   submitLogin() {
-    if (this.userDetals.length > 0) {
-      var userId = this.userDetals.find(element => element['name'] == this.loginForm.value.username);
+    if (this.userDetails.length > 0) {
+      var userId = this.userDetails.find(element => element['name'] == this.loginForm.value.username);
       if (userId) {
         if (userId['password'] == this.loginForm.value.password) {
-          var ls = new SecureLS();
-          ls.set("userName", { data: userId['name'] });
+          this.localStorage.set("userName", { data: userId['name'] });
           this.routeTo.navigateByUrl("/home/dashboard");
         } else {
           this.loginError = "Incorrect Password";

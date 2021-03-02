@@ -13,33 +13,20 @@ export class DashboardComponent implements OnInit {
   greetings: string;
   menuPosition: number = 0;
   userName: string;
+  localStorage: any;
 
   constructor(public routeTo: Router, public service: HttpService) {
     this.getAllTransactions();
-    var ls = new SecureLS();
-    var userDetails = ls.get("userName").data;
+    this.localStorage = new SecureLS();
+    var userDetails = this.localStorage.get("userName").data;
     if (userDetails) {
       this.userName = userDetails
     }
   }
 
   ngOnInit() {
-    this.systemTime();
   }
 
-  /**** For Greeting the User based on Time ********/
-  systemTime() {
-    this.today = new Date();
-    let currentGreeting = this.today.getHours();
-
-    if (currentGreeting < 12) {
-      this.greetings = "Good Morning";
-    } else if (currentGreeting < 18) {
-      this.greetings = "Good Afternoon";
-    } else {
-      this.greetings = "Good Evening";
-    }
-  }
 
   /**Method to logout  */
   userLogout() {
@@ -56,8 +43,7 @@ export class DashboardComponent implements OnInit {
   getAllTransactions() {
     this.service.getTransactions('').subscribe((resp) => {
       console.log(resp);
-      var ls = new SecureLS();
-      ls.set("transactions", { data: resp });
+      this.localStorage.set("transactions", { data: resp });
     })
   }
 }

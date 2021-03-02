@@ -20,6 +20,7 @@ export class NewTransactionComponent {
   transactionForm: FormGroup;
   paymentForm: FormGroup;
   transactions: any;
+  localStorage: any;
   currencys: Currency[] = [
     { value: 'AED', },
     { value: 'EUR', },
@@ -30,8 +31,8 @@ export class NewTransactionComponent {
 
   constructor(private formbuilder: FormBuilder, public routeTo: Router, public service: HttpService) {
     this.createForm();
-    var ls = new SecureLS();
-    this.transactions = ls.get("transactions").data;
+    this.localStorage = new SecureLS();
+    this.transactions = this.localStorage.get("transactions").data;
     this.getReference();
 
   }
@@ -70,7 +71,7 @@ export class NewTransactionComponent {
     if (this.referenceForm.valid && this.transactionForm.valid && this.paymentForm.valid && this.customerDetailForm.valid) {
       let jsonObj = {
         "reference": this.referenceForm.value.referenceNo,
-        "custno": this.customerDetailForm.value.custNo,
+        "custno": this.referenceForm.value.custNo,
         "custname": this.customerDetailForm.value.custName,
         "mobile": this.customerDetailForm.value.mobile,
         "address": this.customerDetailForm.value.custAddress,
@@ -81,6 +82,7 @@ export class NewTransactionComponent {
         "payment": this.paymentForm.value.payment,
       }
       this.service.createTransaction(jsonObj).subscribe((resp) => {
+        this.getAllTransactions();
         this.service.toastr.success("Transaction submitted successfully");
         this.transactionForm.reset();
         this.paymentForm.reset();
@@ -127,17 +129,18 @@ export class NewTransactionComponent {
       var custNo = this.referenceForm.value.custNo;
       var jsonObj = "?transactions.accountno=" + custNo;
       this.service.getTransactionsById(jsonObj).subscribe((resp) => {
-        console.log(resp);
         if (resp) {
           if (resp.length > 0) {
-            var custDetails = resp.find(element => element['accountno'] == custNo);
-            this.customerDetailForm.reset();
+            var customerDetails: any = [];
+            customerDetails = resp;
+            var custDetails = customerDetails.find(element => element['custno'] == custNo);
             if (custDetails) {
               this.customerDetailForm.setValue({
                 custName: custDetails['custname'],
                 mobile: custDetails['mobile'],
                 custAddress: custDetails['address']
               })
+
             }
           }
         }
@@ -168,4 +171,13 @@ export class NewTransactionComponent {
     return /^((\d{1,10})|(\.{1}\d{1,4}))$/.test(txtVal);
   }
 
+
+  /** To Referesh Get all user transactions */
+  getAllTransactions() {
+    this.service.getTransactions('').subscribe((resp) => {
+      if (resp) {
+        this.localStorage.set("transactions", { data: resp });
+      }
+    })
+  }
 }

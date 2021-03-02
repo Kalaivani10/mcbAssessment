@@ -7,6 +7,7 @@
 html,
 body {
   height: 100%;
+  width: auto !important;
 }
 
 body {
@@ -14,15 +15,28 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 /*********Login Starts********/
 
 .frmpadtp {
-  margin-top: 15vh;
+  margin-top: 30%;
+  margin-bottom: 30%;
 }
 
-.totalHeight {
-  height: 100vh !important;
-  width: 100vw !important;
+.row {
+  margin-left: 0px !important;
+  margin-right: 0px !important
 }
 
 .mat-card-actions {
@@ -147,9 +161,9 @@ a {
 
 mat-toolbar {
   overflow: hidden;
-  width: 100%;
-  min-width: 475px;
-  padding: 10px 20px 10px 10px;
+  // width: 100%;
+  // min-width: 475px;
+  // padding: 10px 20px 10px 10px;
   font-size: 20px;
   position: relative;
   color: #fff !important;
@@ -185,7 +199,7 @@ mat-toolbar:after {
 .loginSection::after {
   z-index: 3;
   position: relative;
-  widows: 100%;
+  // widows: 100%;
 }
 
 .spacer {
@@ -196,9 +210,6 @@ mat-toolbar:after {
   background-color: #673ab7 !important;
 }
 
-mat-toolbar {
-  display: absolute !important;
-}
 
 /*******Header ends****/
 
@@ -234,6 +245,8 @@ mat-toolbar {
 .menuactive {
   background-image: linear-gradient(to right, #805cc0, #6b47ab);
   border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .clear {
@@ -255,3 +268,50 @@ li {
 .textAlignCenter {
   text-align: center !important;
 }
+
+.floattxtUserId {
+  top: 19% !important;
+  position: absolute;
+  left: 10%;
+  background: #fff;
+  padding: 0 5px;
+  font-size: 14px;
+  z-index: 11;
+}
+
+.floattxtemail {
+  top: 34% !important;
+  position: absolute;
+  left: 10%;
+  background: #fff;
+  padding: 0 5px;
+  font-size: 14px;
+  z-index: 11;
+}
+
+.floattxtConfPass {
+  top: 63% !important;
+  position: absolute;
+  left: 10%;
+  background: #fff;
+  padding: 0 5px;
+  font-size: 14px;
+  z-index: 11;
+}
+
+.floattxtnewPass {
+  top: 48% !important;
+  position: absolute;
+  left: 10%;
+  background: #fff;
+  padding: 0 5px;
+  font-size: 14px;
+  z-index: 11;
+}
+
+.frmpReg {
+  margin-top: 12% !important;
+  margin-bottom: 12% !important;
+}
+
+/******Registration ends*********/

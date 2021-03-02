@@ -145,7 +145,7 @@
             <div class="col-lg-3 col-md-3 col-sm-12 example-form">
               <mat-form-field appearance="outline" class="example-full-width">
                 <mat-label>Account Number</mat-label>
-                <input type="tel" matInput placeholder=" Enter the Beneficiary Account Number" required
+                <input type="number" numbersOnly matInput placeholder=" Enter the Beneficiary Account Number" required
                   formControlName="bAccountNo" />
                 <mat-error *ngIf="
                     transactionForm.controls['bAccountNo'].hasError('required')
